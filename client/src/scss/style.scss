@@ -30,7 +30,7 @@ body {
     }
 
     .content {
-        min-height: 600px;
+        // min-height: 600px;
 
         .filter {
             border-radius: $border-radius;
@@ -46,6 +46,7 @@ body {
                 padding-top: 1rem;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
 
                 &::after {
                     content: "\25be";
@@ -59,10 +60,6 @@ body {
             &-sub-heading {
                 text-align: center;
                 font-weight: 500;
-
-                &:first-child {
-                    padding: 1rem 0 0 0;
-                }
             }
 
             &-content {
@@ -72,11 +69,14 @@ body {
                 background-color: $bg-white;
                 transform: scaleY(0);
                 transform-origin: 50% 0%;
+                opacity: 0;
                 box-shadow: $box_shadow;
                 z-index: 10;
+                margin-top: 1rem;
 
                 &.active {
                     transform: scaleY(1);
+                    opacity: 1;
                 }
 
                 ul {
@@ -112,10 +112,16 @@ body {
                 width: 100%;
                 border-radius: $border-radius;
                 box-shadow: $box_shadow;
+                margin-top: 2rem;
 
                 .logo {
+                    width: 100%;
+                    background-color: $bg-light;
+                    border-radius: $border-radius;
+                    display: flex;
+                    justify-content: center;
                     img {
-                        width: 100%;
+                        width: 90%;
                     }
                 }
 
@@ -123,7 +129,6 @@ body {
                     list-style: none;
                     padding: 1rem 1rem;
                     display: flex;
-                    flex-direction: row;
                     justify-content: space-between;
 
                     & > span {
@@ -144,25 +149,31 @@ body {
 
     .pages {
         height: 50px;
-        position: relative;
         background-color: $bg-white;
         border-radius: $border-radius;
         box-shadow: $box_shadow;
+        opacity: 0;
+
+        &.active {
+            filter: blur(4px);
+        }
 
         ul {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
 
             li {
-                position: relative;
+                width: 1.5rem;
+                height: 1.5rem;
                 cursor: pointer;
                 color: $primary-color;
                 font-weight: 700;
-                margin: 1rem;
-                display: inline;
                 list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 &.active {
                     text-decoration: underline;
@@ -187,10 +198,11 @@ body {
     .content {
         display: flex;
         font-size: 70%;
+        margin-top: 2rem;
 
         .filter {
-            margin-top: 1rem;
             width: 500px;
+            margin-right: 1rem;
         }
 
         .card-container {
@@ -203,7 +215,18 @@ body {
             flex-wrap: wrap;
 
             .card {
+                margin: 0 !important;
                 display: inline-block;
+            }
+        }
+    }
+
+    .pages {
+        margin-top: 2rem;
+        ul {
+            justify-content: center !important;
+            li {
+                margin: 1rem;
             }
         }
     }

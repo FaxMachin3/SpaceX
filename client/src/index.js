@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
-
 import scss from "./scss/style.scss";
+import noImage from "./assests/no-image.png";
 
 let prevLaunchYear = null;
 let prevLaunchSucc = null;
@@ -21,7 +21,6 @@ let prevNumber = null;
 const populateYears = () => {
     for (let i = 2006; i <= 2020; i++) {
         const node = document.createElement("li");
-        // node.classList.add("test");
         node.appendChild(document.createTextNode(i.toString()));
         listOfYears.appendChild(node);
     }
@@ -31,8 +30,21 @@ populateYears();
 
 const toggleFilter = () => {
     filterHeading.addEventListener("click", () => {
+        pages.classList.toggle("active");
         filterHeading.classList.toggle("active");
         filterContent.classList.toggle("active");
+    });
+
+    pages.addEventListener("mouseover", () => {
+        pages.classList.remove("active");
+        filterHeading.classList.remove("active");
+        filterContent.classList.remove("active");
+    });
+
+    cardContainer.addEventListener("mouseover", () => {
+        pages.classList.remove("active");
+        filterHeading.classList.remove("active");
+        filterContent.classList.remove("active");
     });
 };
 
@@ -47,6 +59,9 @@ const getInitialData = async () => {
         const data = await res.json();
         prevData = data;
     }
+
+    filterContent.style.transition = "transform 0.2s, opacity 0.2s";
+    pages.style.opacity = "1";
 
     populatePageNumbers(prevData.length);
     const newData = prevData.slice(0, 12);
@@ -77,7 +92,7 @@ const populateData = (data) => {
                 <li class="logo">${
                     details.links.mission_patch_small
                         ? `<img src=${details.links.mission_patch_small} />`
-                        : `<img src="imgs/attachment-no-image-available.png" alt="not available">`
+                        : `<img src="imgs/no-image.png" alt="not available">`
                 }</li>
                 <li><span>${details.mission_name} #${
             details.flight_number
@@ -155,9 +170,9 @@ const applyFilter = async () => {
 
             const res = await fetch(reqURL);
             const data = await res.json();
+
             prevData = data;
             const newData = prevData.slice(0, 12);
-            console.log(newData);
 
             cardContainer.innerHTML = "";
             pages.innerHTML = "";
