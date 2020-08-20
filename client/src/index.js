@@ -113,7 +113,7 @@ const populateData = (data) => {
 
         const missionId = document.querySelector(`.mission-id${index}`);
         details.mission_id.forEach((list) => {
-            const li = document.createElement("span");
+            const li = document.createElement("li");
             const text = document.createTextNode(list.toString());
             li.appendChild(text);
             missionId.appendChild(li);
