@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import scss from "./scss/style.scss";
 import noImage from "./assests/no-image.png";
+import favicon from "./assests/favicon.png";
 
 let prevLaunchYear = null;
 let prevLaunchSucc = null;
@@ -91,7 +92,7 @@ const populateData = (data) => {
             <ul>
                 <li class="logo">${
                     details.links.mission_patch_small
-                        ? `<img src=${details.links.mission_patch_small} />`
+                        ? `<img src=${details.links.mission_patch_small} alt="not available"/>`
                         : `<img src="imgs/no-image.png" alt="not available">`
                 }</li>
                 <li><span>${details.mission_name} #${
@@ -118,12 +119,12 @@ const populateData = (data) => {
             missionId.appendChild(li);
         });
 
-        details.mission_id.length == 0 &&
-            missionId.appendChild(
-                document
-                    .createElement("li")
-                    .appendChild(document.createTextNode("NA"))
-            );
+        if (details.mission_id.length == 0) {
+            const liNew = document.createElement("li");
+            const liText = document.createTextNode("NA");
+            liNew.appendChild(liText);
+            missionId.appendChild(liNew);
+        }
     });
 };
 
