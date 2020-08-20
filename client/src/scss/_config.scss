@@ -1,0 +1,43 @@
+$primary-color: #17a2b8;
+$bg-dark: #1f1f1f;
+$bg-light: #e7e7e7;
+$bg-white: #ffffff;
+$max-width: 1440px;
+$bold: 600;
+$border-radius: 5px;
+$box_shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.25);
+
+// Margin & Padding
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+    // All around margin
+    .m-#{$space} {
+        margin: #{$space}rem;
+    }
+
+    // Horizontal Margin
+    .mx-#{$space} {
+        margin: 0 #{$space}rem;
+    }
+
+    // Vertical Margin
+    .my-#{$space} {
+        margin: #{$space}rem 0;
+    }
+
+    // All around Padding
+    .p-#{$space} {
+        padding: #{$space}rem;
+    }
+
+    // Horizontal Padding
+    .mx-#{$space} {
+        padding: 0 #{$space}rem;
+    }
+
+    // Vertical Padding
+    .py-#{$space} {
+        padding: #{$space}rem 0;
+    }
+}

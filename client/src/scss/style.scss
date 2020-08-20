@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import "./config";
+
 * {
     margin: 0;
     padding: 0;
@@ -5,5 +8,211 @@
 }
 
 body {
-    background-color: teal;
+    background-color: $bg-light;
+    font-family: Montserrat, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: $max-width;
+
+    .header {
+        height: 100px;
+        text-align: center;
+        font-weight: $bold;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $bg-white;
+        box-shadow: $box_shadow;
+        border-radius: $border-radius;
+    }
+
+    .content {
+        min-height: 600px;
+
+        .filter {
+            border-radius: $border-radius;
+            background-color: $bg-white;
+            height: 50px;
+            position: relative;
+
+            &-heading {
+                height: 50px;
+                box-shadow: $box_shadow;
+                cursor: pointer;
+                font-weight: 600;
+                padding-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+
+                &::after {
+                    content: "\25be";
+                }
+
+                &.active::after {
+                    content: "\25b4";
+                }
+            }
+
+            &-sub-heading {
+                text-align: center;
+                font-weight: 500;
+
+                &:first-child {
+                    padding: 1rem 0 0 0;
+                }
+            }
+
+            &-content {
+                position: absolute;
+                top: calc(50px + 1rem);
+                border-radius: $border-radius;
+                background-color: $bg-white;
+                transform: scaleY(0);
+                transform-origin: 50% 0%;
+                box-shadow: $box_shadow;
+                z-index: 10;
+
+                &.active {
+                    transform: scaleY(1);
+                }
+
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    li {
+                        cursor: pointer;
+                        margin: 1rem;
+                        border-radius: $border-radius;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 2.5em;
+                        width: 5em;
+                        font-weight: 500;
+                        background-color: lighten($primary-color, 50%);
+                        list-style: none;
+
+                        &.active {
+                            background-color: lighten($primary-color, 30%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .card-container {
+            .card {
+                background-color: $bg-white;
+                width: 100%;
+                border-radius: $border-radius;
+                box-shadow: $box_shadow;
+
+                .logo {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                li {
+                    list-style: none;
+                    padding: 1rem 1rem;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    & > span {
+                        font-weight: 600;
+                    }
+
+                    &:nth-child(2) {
+                        color: $primary-color;
+                        display: flex;
+                        justify-content: center;
+                        font-size: 120%;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .pages {
+        height: 50px;
+        position: relative;
+        background-color: $bg-white;
+        border-radius: $border-radius;
+        box-shadow: $box_shadow;
+
+        ul {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            li {
+                position: relative;
+                cursor: pointer;
+                color: $primary-color;
+                font-weight: 700;
+                margin: 1rem;
+                display: inline;
+                list-style: none;
+
+                &.active {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .footer {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .bold {
+            font-weight: $bold;
+        }
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    .content {
+        display: flex;
+        font-size: 70%;
+
+        .filter {
+            margin-top: 1rem;
+            width: 500px;
+        }
+
+        .card-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2rem;
+            margin: 0 0 0 1rem;
+
+            flex-wrap: wrap;
+
+            .card {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .content {
+        .card-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
 }

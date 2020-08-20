@@ -1,7 +1,13 @@
+let HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
     entry: "./src/index.js",
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/template.html",
+        }),
+    ],
     module: {
         rules: [
             {
@@ -13,7 +19,7 @@ module.exports = {
                 use: {
                     loader: "file-loader",
                     options: {
-                        name: "[name].[hash].[ext]",
+                        name: "[name].[ext]",
                         outputPath: "imgs",
                     },
                 },
