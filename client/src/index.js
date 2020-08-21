@@ -163,7 +163,7 @@ const applyFilter = async () => {
                 prevLandSucc = currTarget;
             }
 
-            const reqURL = `https://api.spaceXdata.com/v3/launches?limit=30${
+            const reqURL = `https://api.spaceXdata.com/v3/launches?limit=100${
                 launchYear ? `&launch_year=${launchYear}` : ``
             }${successfulLaunch ? `&launch_success=${successfulLaunch}` : ``}${
                 successfulLanding ? `&land_success=${successfulLanding}` : ``
