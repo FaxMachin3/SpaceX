@@ -99,6 +99,7 @@ body {
                         list-style: none;
 
                         &.active {
+                            pointer-events: none;
                             background-color: lighten($primary-color, 30%);
                         }
                     }
@@ -181,6 +182,7 @@ body {
                 align-items: center;
 
                 &.active {
+                    pointer-events: none;
                     text-decoration: underline;
                 }
             }
