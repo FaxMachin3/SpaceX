@@ -27,7 +27,6 @@ const getInitialData = async (
         const data = await res.json();
         prevData = data;
     }
-
     filterContent.style.transition = "transform 0.2s, opacity 0.2s";
     pages.style.opacity = "1";
 
