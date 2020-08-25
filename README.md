@@ -16,6 +16,7 @@ A website where you can know about SpaceX missions.
     -   webpack-dev-server (_for development environment_)
     -   webpack-merge (_merging multiple webpack configs_)
     -   clean-webpack-plugin (_cleaning previous builds_)
+    -   jest (_tests code_)
     -   css-loader (_loads and minifies css into build_)
     -   file-loader (_loads and minifies images into build_)
     -   gh-pages (_environment to deploy on GitHub Pages_)
