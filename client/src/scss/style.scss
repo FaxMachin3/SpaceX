@@ -53,9 +53,9 @@ body {
                     content: "\25be";
                 }
 
-                &.active::after {
-                    content: "\25b4";
-                }
+                // &.active::after {
+                //     content: "\25b4";
+                // }
             }
 
             &-sub-heading {
@@ -75,16 +75,15 @@ body {
                 border-bottom-left-radius: $border-radius;
                 border-bottom-right-radius: $border-radius;
                 background-color: $bg-white;
-                transform: scaleY(0);
+                // transform: scaleY(0);
                 transform-origin: 50% 0%;
-                opacity: 0;
+                // opacity: 0;
                 box-shadow: $box_shadow;
-                z-index: 10;
 
-                &.active {
-                    transform: scaleY(1);
-                    opacity: 1;
-                }
+                // &.active {
+                //     transform: scaleY(1);
+                //     opacity: 1;
+                // }
 
                 ul {
                     display: grid;
@@ -115,6 +114,7 @@ body {
         }
 
         .card-container {
+            margin-top: calc(905px + 2rem);
             .card {
                 background-color: $bg-white;
                 width: 100%;
