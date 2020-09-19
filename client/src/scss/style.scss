@@ -41,8 +41,7 @@ body {
             &-heading {
                 height: 50px;
                 box-shadow: $box_shadow;
-
-                cursor: pointer;
+                // cursor: pointer;
                 font-weight: 600;
                 padding-top: 1rem;
                 display: flex;
@@ -161,12 +160,10 @@ body {
     }
 
     .pages {
-        display: none;
         height: 50px;
         background-color: $bg-white;
         border-radius: $border-radius;
         box-shadow: $box_shadow;
-        opacity: 0;
 
         &.active {
             filter: blur(4px);

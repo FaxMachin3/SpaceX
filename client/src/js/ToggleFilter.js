@@ -7,17 +7,17 @@ const toggleFilter = (pages, filterHeading, filterContent, cardContainer) => {
     //     filterContent.classList.toggle("active");
     // });
 
-    // pages.addEventListener("mouseover", () => {
-    //     pages.classList.remove("active");
-    //     filterHeading.classList.remove("active");
-    //     filterContent.classList.remove("active");
-    // });
+    pages.addEventListener("mouseover", () => {
+        pages.classList.remove("active");
+        filterHeading.classList.remove("active");
+        filterContent.classList.remove("active");
+    });
 
-    // cardContainer.addEventListener("mouseover", () => {
-    //     pages.classList.remove("active");
-    //     filterHeading.classList.remove("active");
-    //     filterContent.classList.remove("active");
-    // });
+    cardContainer.addEventListener("mouseover", () => {
+        pages.classList.remove("active");
+        filterHeading.classList.remove("active");
+        filterContent.classList.remove("active");
+    });
 };
 
 module.exports = toggleFilter;
