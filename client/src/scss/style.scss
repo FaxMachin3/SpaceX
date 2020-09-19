@@ -164,6 +164,7 @@ body {
         background-color: $bg-white;
         border-radius: $border-radius;
         box-shadow: $box_shadow;
+        opacity: 0;
 
         &.active {
             filter: blur(4px);

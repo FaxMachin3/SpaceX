@@ -28,7 +28,7 @@ const getInitialData = async (
         prevData = data;
     }
     // filterContent.style.transition = "transform 0.2s, opacity 0.2s";
-    // pages.style.opacity = "1";
+    pages.style.opacity = "1";
 
     populatePageNumbers(prevData, pages);
     const newData = prevData.slice(0, 12);
